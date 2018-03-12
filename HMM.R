@@ -1,5 +1,6 @@
 library(depmixS4)
-library(ggplot2)args <- commandArgs(TRUE)
+library(ggplot2)
+args <- commandArgs(TRUE)
 
 ### Read data: tabulated file
 # 3 arguments
