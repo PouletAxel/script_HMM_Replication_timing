@@ -3,15 +3,15 @@
 
 if (($ARGV[0] eq "-h") || ($ARGV[0] eq "--h") || ($ARGV[0] eq "-help" )|| ($ARGV[0] eq "--help")|| (!defined($ARGV[0])))
 {
-print "# Dossier contenant le ou les fichiers a parcourir :
+print "# File of contiguous bins to computed the size of domains by chromosomes :
 \t#Argument 0 : bed file of state\n";
 	die("\n");
 }
 
-open(F1,$ARGV[0]) || die "pblm fichier $ARGV[0]\n";
+open(F1,$ARGV[0]) || die "File problem $ARGV[0]\n";
 my @tpreced;
 my @tnewLine;
-my @plopi;
+my @tTmp;
 my $i=0;
 my %chrTailleBins;
 my %nbChr;
@@ -26,13 +26,13 @@ while(<F1>){
 	}
 	
 	else{
-		my $plop = join ("\t", @tnewLine);
-		push(@plopi,$plop);
+		my $tmp = join ("\t", @tnewLine);
+		push(@tTmp,$tmp);
 		if($tnewLine[2]-$tnewLine[1] == 50000){$nb50kb++;}
 		$nbChr{$tnewLine[0]}++;
 		$chrTailleBins{$tnewLine[0]} = $chrTailleBins{$tnewLine[0]}+($tnewLine[2]-$tnewLine[1]);
 		if($i > 0){
-			my @a = split("\t",$plopi[$i-1]);
+			my @a = split("\t",$tTmp[$i-1]);
 			if ($a[0] eq $tnewLine[0]){
 			 my $distance = $tnewLine[1]-$a[2];
 			 #print "$a[0]\t$a[2]\t$tnewLine[1]\t$distance\n";

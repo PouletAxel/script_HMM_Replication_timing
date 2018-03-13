@@ -3,9 +3,9 @@
 
 if (($ARGV[0] eq "-h") || ($ARGV[0] eq "--h") || ($ARGV[0] eq "-help" )|| ($ARGV[0] eq "--help")|| (!defined($ARGV[1])))
 {
-print "Param :
-\t#Argument 1 : gff
-\t#Argument 2 : file avec les coordonnes\n";
+print "Script to obtain the gff annotation for on the bed coordinates in the bed file :
+\t#Argument 1 : gff File
+\t#Argument 2 : bed File\n";
 	die("\n");
 }
 
@@ -104,14 +104,14 @@ while(<F1>){
 }
 close (F1);
 
-open(RESU1,">/compbio/data/axel/GlobalCount_hepato_EtoL.txt") || die "pblm fichier yata";
+open(RESU1,">/GlobalCount.txt") || die "pblm fichier yata";
 foreach my $key(keys(%hGeneType)){
 	print RESU1 "$key\t$hGeneType{$key}\n";
 }
 
 my $nb =0;
 
-open(RESU,">/compbio/data/axel/pc_hepato_EtoL.txt") || die "pblm fichier yata";
+open(RESU,">protein_coding.txt") || die "pblm fichier yata";
 print RESU "State\tGene\n";
 foreach my $key(keys(%pcByState)){
 	print RESU "$key\t";
@@ -123,7 +123,7 @@ foreach my $key(keys(%pcByState)){
 }
 close (RESU);
 
-open(RESU,">/compbio/data/axel/ncRNA_hepato_EtoL.txt") || die "pblm fichier yata";
+open(RESU,">ncRNA.txt") || die "pblm fichier yata";
 print RESU "State\tGene\n";
 foreach my $key(keys(%ncRNAByState)){
 	print RESU "$key\t";
@@ -135,7 +135,7 @@ foreach my $key(keys(%ncRNAByState)){
 }
 close (RESU);
 
-open(RESU,">/compbio/data/axel/lncRNA_hepato_EtoL.txt") || die "pblm fichier yata";
+open(RESU,">lncRNA.txt") || die "pblm fichier yata";
 print RESU "State\tGene\n";
 foreach my $key(keys(%lncRNAByState)){
 	print RESU "$key\t";
