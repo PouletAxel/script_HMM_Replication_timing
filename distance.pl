@@ -8,7 +8,6 @@ print "# Dossier contenant le ou les fichiers a parcourir :
 	die("\n");
 }
 
-#gene_id	H1_Cell_Line	H1_MES	H1_BMP4_Derived_Trophoblast_Cultured_Cells	H1_Derived_Mesenchymal_Stem_Cells	H1_NPC	CD184_Endoderm	CD56_Ectoderm	hESC_CD56_Mesoderm	HUES64	CD4_Memory_Primary_Cells	CD4_Naive_Primary_Cells	CD8_Naive_Primary_Cells	Mobilized_CD34_Primary_Cells_Female	Adult_Liver	Pancreas	GM12878	HELA	HEPG2	HMEC	HSMM	HUVEC	K562	NHEK	NHLF
 open(F1,$ARGV[0]) || die "pblm fichier $ARGV[0]\n";
 my @tpreced;
 my @tnewLine;
